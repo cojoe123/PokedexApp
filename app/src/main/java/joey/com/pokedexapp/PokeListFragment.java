@@ -13,6 +13,7 @@ import java.util.List;
 public class PokeListFragment extends Fragment {
 
     private RecyclerView mPokemonRecyclerView;
+    private PokemonAdapter mPokemonAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -21,7 +22,18 @@ public class PokeListFragment extends Fragment {
         mPokemonRecyclerView = (RecyclerView) view.findViewById(R.id.pokemon_recycler_view);
         mPokemonRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        updateUI();
+
         return view;
+    }
+
+    private void updateUI() {
+        PokemonLab pokemonLab = PokemonLab.get(getActivity());
+        List<Pokemon> pokemons = pokemonLab.getPokemons();
+
+        mPokemonAdapter = new PokemonAdapter(pokemons);
+        mPokemonRecyclerView.setAdapter(mPokemonAdapter);
+
     }
 
     private class PokemonHolder extends RecyclerView.ViewHolder {

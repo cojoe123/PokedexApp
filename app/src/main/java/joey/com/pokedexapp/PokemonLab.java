@@ -39,6 +39,8 @@ public class PokemonLab {
         bulbasaur.setSpecialDefense(3);
         bulbasaur.setSpeed(3);
 
+        mPokemons.add(bulbasaur);
+
         // 2
         Pokemon charmander = new Pokemon();
         charmander.setName("Charmander");
@@ -51,6 +53,8 @@ public class PokemonLab {
         charmander.setSpecialAttack(3);
         charmander.setSpecialDefense(2);
         charmander.setSpeed(4);
+
+        mPokemons.add(charmander);
 
         // 3
         Pokemon squirtle = new Pokemon();
@@ -65,6 +69,8 @@ public class PokemonLab {
         squirtle.setSpecialDefense(3);
         squirtle.setSpeed(2);
 
+        mPokemons.add(squirtle);
+
         // 4
         Pokemon butterfree = new Pokemon();
         butterfree.setName("ButterFree");
@@ -77,6 +83,8 @@ public class PokemonLab {
         butterfree.setSpecialAttack(4);
         butterfree.setSpecialDefense(3);
         butterfree.setSpeed(4);
+
+        mPokemons.add(butterfree);
 
         // 5
         Pokemon beedrill = new Pokemon();
@@ -91,6 +99,8 @@ public class PokemonLab {
         beedrill.setSpecialDefense(3);
         beedrill.setSpeed(4);
 
+        mPokemons.add(beedrill);
+
         // 6
         Pokemon vulpix = new Pokemon();
         vulpix.setName("Vulpix");
@@ -103,6 +113,8 @@ public class PokemonLab {
         vulpix.setSpecialAttack(2);
         vulpix.setSpecialDefense(3);
         vulpix.setSpeed(4);
+
+        mPokemons.add(vulpix);
 
         // 7
         Pokemon ninetales = new Pokemon();
@@ -117,6 +129,8 @@ public class PokemonLab {
         ninetales.setSpecialDefense(4);
         ninetales.setSpeed(5);
 
+        mPokemons.add(ninetales);
+
         // 8
         Pokemon cubone = new Pokemon();
         cubone.setName("Cubone");
@@ -129,6 +143,8 @@ public class PokemonLab {
         cubone.setSpecialAttack(2);
         cubone.setSpecialDefense(2);
         cubone.setSpeed(2);
+
+        mPokemons.add(cubone);
 
         // 9
         Pokemon jolteon = new Pokemon();
@@ -143,6 +159,8 @@ public class PokemonLab {
         jolteon.setSpecialDefense(4);
         jolteon.setSpeed(7);
 
+        mPokemons.add(jolteon);
+
         // 10
         Pokemon growlithe = new Pokemon();
         growlithe.setName("Growlithe");
@@ -156,7 +174,11 @@ public class PokemonLab {
         growlithe.setSpecialDefense(2);
         growlithe.setSpeed(3);
 
+        mPokemons.add(growlithe);
+    }
 
+    public List<Pokemon> getPokemons() {
+        return mPokemons;
     }
 
     public Pokemon getPokemon(String name) {
