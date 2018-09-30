@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -37,9 +38,22 @@ public class PokeListFragment extends Fragment {
     }
 
     private class PokemonHolder extends RecyclerView.ViewHolder {
+
+        private TextView mPokeTextView;
+        private Pokemon mPokemon;
+
         public PokemonHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.list_item_pokemon, parent, false));
+
+            mPokeTextView = (TextView) itemView.findViewById(R.id.pokemon_name);
         }
+
+        public void bind(Pokemon pokemon) {
+            mPokemon = pokemon;
+            mPokeTextView.setText(mPokemon.getName());
+
+        }
+
     }
 
     private class PokemonAdapter extends RecyclerView.Adapter<PokemonHolder> {
@@ -59,6 +73,8 @@ public class PokeListFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(PokemonHolder holder, int position) {
+            Pokemon poke = mPokemons.get(position);
+            holder.bind(poke);
 
         }
 
