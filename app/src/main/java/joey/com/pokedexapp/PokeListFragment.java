@@ -1,5 +1,6 @@
 package joey.com.pokedexapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -37,15 +39,36 @@ public class PokeListFragment extends Fragment {
 
     }
 
-    private class PokemonHolder extends RecyclerView.ViewHolder {
+    private class PokemonHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView mPokeTextView;
         private Pokemon mPokemon;
 
         public PokemonHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.list_item_pokemon, parent, false));
+            itemView.setOnClickListener(this);
 
             mPokeTextView = (TextView) itemView.findViewById(R.id.pokemon_name);
+        }
+
+        @Override
+        public void onClick(View view) {
+//            Toast.makeText(getActivity(), mPokemon.getName() + " clicked!", Toast.LENGTH_SHORT).show();
+            Bundle extras = new Bundle();
+            extras.putString("poke_name", mPokemon.getName());
+            extras.putString("height", mPokemon.getHeight());
+            extras.putString("weight", mPokemon.getWeight());
+            extras.putString("category", mPokemon.getCategory());
+            extras.putInt("hp", mPokemon.getHP());
+            extras.putInt("atk", mPokemon.getAttack());
+            extras.putInt("def", mPokemon.getDefense());
+            extras.putInt("special_atk", mPokemon.getSpecialAttack());
+            extras.putInt("special_def", mPokemon.getSpecialDefense());
+            extras.putInt("speed", mPokemon.getSpeed());
+
+            Intent intent = new Intent(getActivity(), PokeInfoActivity.class);
+            intent.putExtras(extras);
+            startActivity(intent);
         }
 
         public void bind(Pokemon pokemon) {

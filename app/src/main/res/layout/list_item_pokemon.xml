@@ -5,14 +5,15 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pokemon Captured:"/>
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Pokemon Captured:"/>-->
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
         android:id="@+id/pokemon_name"/>
 
 

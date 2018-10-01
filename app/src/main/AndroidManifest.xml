@@ -18,6 +18,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".PokeInfoActivity"></activity>
+
         <!--<activity android:name=".PokedexActivity">-->
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
