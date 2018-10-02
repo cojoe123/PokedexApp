@@ -164,9 +164,9 @@ public class PokemonLab {
         // 10
         Pokemon growlithe = new Pokemon();
         growlithe.setName("Growlithe");
-        growlithe.setHeight("2' 07\" ");
-        growlithe.setWeight("54.0 lbs");
-        growlithe.setCategory("Lightning");
+        growlithe.setHeight("2' 04\" ");
+        growlithe.setWeight("41.9 lbs");
+        growlithe.setCategory("Puppy");
         growlithe.setHP(2);
         growlithe.setAttack(4);
         growlithe.setDefense(2);
