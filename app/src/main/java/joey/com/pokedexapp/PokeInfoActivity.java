@@ -1,5 +1,7 @@
 package joey.com.pokedexapp;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
@@ -20,8 +22,6 @@ public class PokeInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_pokeinfo);
-
-        mProPic = (ImageView) findViewById(R.id.pokePic);
 
         String name = getIntent().getStringExtra("poke_name");
         mName = (TextView) findViewById(R.id.pokeName);
@@ -51,6 +51,42 @@ public class PokeInfoActivity extends AppCompatActivity {
                 String.format("Stats \n\nHP: %%d \nAttack: %%d \nDefense: %%d \nSpecial Attack: %%d \nSpecial Defense: %%d \nSpeed: %%d"),
                 hp, atk, def, specialAtk, specialDef, speed
         ));
+
+        // logic to display image
+        Bitmap bitmap;
+        mProPic = (ImageView) findViewById(R.id.pokePic);
+        if (name.toLowerCase().equals("bulbasaur")) {
+            bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.bulbasaur);
+            mProPic.setImageBitmap(bitmap);
+        } else if (name.toLowerCase().equals("cubone")) {
+            bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.cubone);
+            mProPic.setImageBitmap(bitmap);
+        } else if (name.toLowerCase().equals("charmander")) {
+            bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.chramander);
+            mProPic.setImageBitmap(bitmap);
+        } else if (name.toLowerCase().equals("squirtle")) {
+            bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.squirtle);
+            mProPic.setImageBitmap(bitmap);
+        } else if (name.toLowerCase().equals("butterfree")) {
+            bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.butterfree);
+            mProPic.setImageBitmap(bitmap);
+        } else if (name.toLowerCase().equals("beedrill")) {
+            bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.beedrill);
+            mProPic.setImageBitmap(bitmap);
+        } else if (name.toLowerCase().equals("ninetales")) {
+            bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ninetales);
+            mProPic.setImageBitmap(bitmap);
+        } else if (name.toLowerCase().equals("vulpix")) {
+            bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.vulpix);
+            mProPic.setImageBitmap(bitmap);
+        } else if (name.toLowerCase().equals("jolteon")) {
+            bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.jolteon);
+            mProPic.setImageBitmap(bitmap);
+        } else if (name.toLowerCase().equals("growlithe")) {
+            bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.growlithe);
+            mProPic.setImageBitmap(bitmap);
+        }
+
 
     }
 

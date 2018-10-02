@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -53,7 +52,7 @@ public class PokeListFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-//            Toast.makeText(getActivity(), mPokemon.getName() + " clicked!", Toast.LENGTH_SHORT).show();
+
             Bundle extras = new Bundle();
             extras.putString("poke_name", mPokemon.getName());
             extras.putString("height", mPokemon.getHeight());
