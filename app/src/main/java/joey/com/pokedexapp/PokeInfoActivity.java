@@ -43,8 +43,8 @@ public class PokeInfoActivity extends AppCompatActivity {
         mProPic = (ImageView) findViewById(R.id.pokePic);
         mStats = (EditText) findViewById(R.id.pokeStats);
 
-//        String category = getIntent().getStringExtra("category");
-//        mCategory.setText(String.format("Category: %s", category));
+        String category = getIntent().getStringExtra("category");
+        mCategory.setText(String.format("Category: %s", category));
 
         // connect to API
         PokeAPI service = RetrofitClient.getRetrofitInstance().create(PokeAPI.class);
@@ -54,7 +54,10 @@ public class PokeInfoActivity extends AppCompatActivity {
             public void onResponse(Call<Pokemon> call, Response<Pokemon> response) {
                 data = response.body();
 
-                mName.setText(String.format("Name: %s", data.getName()));
+                String name =  data.getName();
+                name = name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+
+                mName.setText(String.format("Name: %s", name));
                 mHeight.setText(String.format("Height: %s", data.getHeight()));
                 mWeight.setText(String.format("Weight: %s", data.getWeight()));
 
