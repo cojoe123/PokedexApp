@@ -3,10 +3,9 @@ package joey.com.pokedexapp;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Pokemon { //implements Serializable {
+public class Pokemon { 
 
     @SerializedName("height")
     @Expose
