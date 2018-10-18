@@ -1,45 +1,70 @@
 package joey.com.pokedexapp;
 
-public class Pokemon {
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-    private String mName;
-    private String mHeight;
-    private String mWeight;
+import java.io.Serializable;
+import java.util.List;
+
+public class Pokemon { //implements Serializable {
+
+    @SerializedName("height")
+    @Expose
+    private int height;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("stats")
+    @Expose
+    private List<Stat> stats = null;
+    @SerializedName("weight")
+    @Expose
+    private int weight;
     private String mCategory;
-    private int mSpecialAttack;
-    private int mSpecialDefense;
-    private int mHP;
-    private int mAttack;
-    private int mDefense;
-    private int mSpeed;
 
     public Pokemon() {
 
     }
 
+    public Pokemon(int height, String name, List<Stat> stats, int weight) {
+        this.height = height;
+        this.name = name;
+        this.stats = stats;
+        this.weight = weight;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
     public String getName() {
-        return mName;
+        return name;
     }
 
     public void setName(String name) {
-        mName = name;
+        this.name = name;
     }
 
-    public String getHeight() {
-        return mHeight;
+    public List<Stat> getStats() {
+        return stats;
     }
 
-    public void setHeight(String height) {
-        mHeight = height;
+    public void setStats(List<Stat> stats) {
+        this.stats = stats;
     }
 
-    public String getWeight() {
-        return mWeight;
+    public int getWeight() {
+        return weight;
     }
 
-    public void setWeight(String weight) {
-        mWeight = weight;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
+
 
     public String getCategory() {
         return mCategory;
@@ -49,51 +74,47 @@ public class Pokemon {
         mCategory = category;
     }
 
-    public int getSpecialAttack() {
-        return mSpecialAttack;
+    public class Stat {
+        @SerializedName("base_stat")
+        @Expose
+        private Integer baseStat;
+        @SerializedName("stat")
+        @Expose
+        private Stat_ stat;
+
+
+        public Integer getBaseStat() {
+            return baseStat;
+        }
+
+        public void setBaseStat(Integer baseStat) {
+            this.baseStat = baseStat;
+        }
+
+        public Stat_ getStat() {
+            return stat;
+        }
+
+        public void setStat(Stat_ stat) {
+            this.stat = stat;
+        }
+
     }
 
-    public void setSpecialAttack(int specialAttack) {
-        mSpecialAttack = specialAttack;
+    public class Stat_ {
+
+        @SerializedName("name")
+        @Expose
+        private String statName;
+
+        public String getStatName() { return statName; }
+
+        public void setStatName(String statName) {
+            this.statName = statName;
+        }
+
     }
 
-    public int getSpecialDefense() {
-        return mSpecialDefense;
-    }
-
-    public void setSpecialDefense(int specialDefense) {
-        mSpecialDefense = specialDefense;
-    }
-
-    public int getHP() {
-        return mHP;
-    }
-
-    public void setHP(int HP) {
-        mHP = HP;
-    }
-
-    public int getAttack() {
-        return mAttack;
-    }
-
-    public void setAttack(int attack) {
-        mAttack = attack;
-    }
-
-    public int getDefense() {
-        return mDefense;
-    }
-
-    public void setDefense(int defense) {
-        mDefense = defense;
-    }
-
-    public int getSpeed() {
-        return mSpeed;
-    }
-
-    public void setSpeed(int speed) {
-        mSpeed = speed;
-    }
 }
+
+

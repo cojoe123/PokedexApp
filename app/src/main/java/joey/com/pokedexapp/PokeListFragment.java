@@ -5,17 +5,36 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PokeListFragment extends Fragment {
 
     private RecyclerView mPokemonRecyclerView;
     private PokemonAdapter mPokemonAdapter;
+    public List<Pokemon> data;
+    //public static final String BASE_URL = "https://pokeapi.co/api/v2/";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +57,7 @@ public class PokeListFragment extends Fragment {
 
     }
 
+
     private class PokemonHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView mPokeTextView;
@@ -55,15 +75,7 @@ public class PokeListFragment extends Fragment {
 
             Bundle extras = new Bundle();
             extras.putString("poke_name", mPokemon.getName());
-            extras.putString("height", mPokemon.getHeight());
-            extras.putString("weight", mPokemon.getWeight());
             extras.putString("category", mPokemon.getCategory());
-            extras.putInt("hp", mPokemon.getHP());
-            extras.putInt("atk", mPokemon.getAttack());
-            extras.putInt("def", mPokemon.getDefense());
-            extras.putInt("special_atk", mPokemon.getSpecialAttack());
-            extras.putInt("special_def", mPokemon.getSpecialDefense());
-            extras.putInt("speed", mPokemon.getSpeed());
 
             Intent intent = new Intent(getActivity(), PokeInfoActivity.class);
             intent.putExtras(extras);
